@@ -16,7 +16,41 @@ category:"Electronics",
 image:"https://picsum.photos/300?2",
 description:"Wireless headphones"
 },
+import { products } from "../data/products.js";
 
+export default function Products(){
+
+return `
+<input
+class="search"
+id="searchInput"
+placeholder="Search products">
+
+<div class="products">
+
+${products.map(product=>`
+
+<div class="card">
+
+<img src="${product.image}">
+
+<h3>${product.name}</h3>
+
+<p>₹${product.price}</p>
+
+<p>${product.category}</p>
+
+<a href="#/product/${product.id}">
+<button>View Details</button>
+</a>
+
+</div>
+
+`).join("")}
+
+</div>
+`;
+}
 {
 id:3,
 name:"Shoes",
